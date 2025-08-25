@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { EmblaCarousel } from '@kit/ui/embla-carousel';
 import { cn } from '@kit/ui/utils';
 
-interface HeroImage {
+export interface HeroImage {
   src: string;
   alt: string;
   title?: string;
@@ -28,16 +28,20 @@ export function Hero({ title, subtitle, cta, images, className }: HeroProps) {
       <div className="relative h-[70vh] w-full">
         {/* Section logo */}
         <div className="absolute top-1/2 left-1/2 z-30 -translate-x-1/2 -translate-y-1/2">
-          <div className="relative h-32 w-64 md:h-48 md:w-96 lg:h-64 lg:w-[32rem]">
-            <Image
-              fill
-              src={'/images/mti.png'}
-              alt={'logo MTI Échappement'}
-              sizes="(max-width: 768px) 384px, (max-width: 1200px) 512px, 256px"
-              priority={true}
-              className="object-contain"
-            />
+          {/* Section logo */}
+          <div className="absolute top-1/2 left-1/2 z-30 -translate-x-1/2 -translate-y-1/2">
+            <div className="relative h-40 w-80 md:h-56 md:w-[28rem] lg:h-72 lg:w-[36rem]">
+              <Image
+                fill
+                src={'/images/mti.png'}
+                alt={'logo MTI Échappement'}
+                sizes="(max-width: 768px) 448px, (max-width: 1200px) 576px, 320px"
+                priority={true}
+                className="object-contain"
+              />
+            </div>
           </div>
+
         </div>
 
         {/* Section slider fullscreen */}

@@ -6,10 +6,17 @@ import { setRequestLocale } from 'next-intl/server';
 import { ConsentBanner } from '@kit/consent';
 
 import { Footer } from '~/[locale]/(marketing)/_components/footer';
+import InConstructionPage from '~/[locale]/(marketing)/_components/InConstruction';
 
 type Props = {
   params: Promise<{ locale: Locale }>;
 };
+
+export async function generateMetadata() {
+  return {
+    title: 'Echappements serie',
+  };
+}
 
 function EchappementsSeriePage({ params }: Props) {
   const { locale } = use(params);
@@ -20,8 +27,10 @@ function EchappementsSeriePage({ params }: Props) {
   return (
     <>
       <ConsentBanner />
-      <div className={'mx-0 w-full'}>toto</div>
-      <div className={'container mx-auto'}></div>
+      <div className={'container mx-auto my-auto'}>
+
+        <InConstructionPage />
+      </div>
       <Footer />
     </>
   );

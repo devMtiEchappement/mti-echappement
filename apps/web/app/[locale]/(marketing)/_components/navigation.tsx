@@ -1,21 +1,18 @@
 'use client';
 
-import { useState } from 'react';
 
-import { MailIcon, MenuIcon, PhoneIcon, XIcon } from 'lucide-react';
+import { MailIcon, PhoneIcon } from 'lucide-react';
 
-import { Dialog, DialogContent } from '@kit/ui/dialog';
 import { Link } from '@kit/ui/link';
 
 const navigation = [
   { name: 'Bienvenue', href: '/' },
   { name: 'Notre savoir-faire', href: '/savoir-faire' },
-  { name: 'Échappements sur mesure', href: 'echappements-serie' },
-  { name: 'Échappements serie', href: 'echappements-sur-mesure' },
+  { name: 'Échappements sur mesure', href: 'echappements-sur-mesure' },
+  { name: 'Échappements serie', href: 'echappements-serie' },
 ];
 
 export default function Navigation() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <>
@@ -49,61 +46,13 @@ export default function Navigation() {
                 key={item.name}
                 href={item.href}
                 variant={'link'}
-                className="text-sm/6 font-semibold text-gray-900 dark:text-white"
+                className=" font-semibold border-mti-orange"
               >
                 {item.name}
               </Link>
             ))}
-            <a
-              href="#"
-              className="text-sm/6 font-semibold text-gray-900 dark:text-white"
-            >
-              Log in <span aria-hidden="true">&rarr;</span>
-            </a>
           </div>
         </nav>
-        <Dialog open={mobileMenuOpen}>
-          <DialogContent>
-            <div className="flex items-center justify-between">
-              <a href="#" className="-m-1.5 p-1.5">
-                <span className="sr-only">Your Company</span>
-                <img
-                  alt=""
-                  src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
-                  className="h-8 w-auto dark:hidden"
-                />
-                <img
-                  alt=""
-                  src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
-                  className="h-8 w-auto not-dark:hidden"
-                />
-              </a>
-            </div>
-            <div className="mt-6 flow-root">
-              <div className="-my-6 divide-y divide-gray-500/10 dark:divide-white/10">
-                <div className="space-y-2 py-6">
-                  {navigation.map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-white/5"
-                    >
-                      {item.name}
-                    </a>
-                  ))}
-                </div>
-                <div className="py-6">
-                  <a
-                    href="#"
-                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-white/5"
-                  >
-                    Log in
-                  </a>
-                </div>
-              </div>
-            </div>
-          </DialogContent>
-        </Dialog>
       </header>
     </>
   );

@@ -5,9 +5,12 @@ import { useRef } from "react";
 
 import { motion, useScroll, useTransform } from "motion/react";
 import { cn } from "../lib/utils";
-
+type ImageProps = {
+  src: string;
+   alt: string;
+}
 type ImageParallaxProps = {
-    image: any | null | undefined;
+    image: ImageProps ;
     i: number;
     aspectRatioClass?: string;
     marginOddClass?: string;
@@ -28,7 +31,6 @@ function ImageParallax({
         offset: ["start end", "end start"],
     });
     const y = useTransform(scrollYProgress, [0, 1], ["-20%", "0%"]);
-    const position = i + 1;
 
     return (
         <div
@@ -52,6 +54,7 @@ function ImageParallax({
                     style={{ y }}
                     className={"relative h-[120%] overflow-hidden bg-primary"}
                 >
+
                     <Image
                         fill
                         className="relative h-full w-full object-cover object-center"

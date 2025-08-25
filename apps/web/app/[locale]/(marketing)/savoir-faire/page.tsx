@@ -14,11 +14,11 @@ type Props = {
 
 export async function generateMetadata() {
   return {
-    title: 'Echappements sur mesure',
+    title: 'Savoir-faire',
   };
 }
 
-function EchappementsSurMesurePage({ params }: Props) {
+function SavoirFairePage({ params }: Props) {
   const { locale } = use(params);
 
   // Enable static rendering
@@ -35,4 +35,4 @@ function EchappementsSurMesurePage({ params }: Props) {
   );
 }
 
-export default EchappementsSurMesurePage;
+export default SavoirFairePage;

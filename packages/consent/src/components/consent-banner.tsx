@@ -17,7 +17,7 @@ export function ConsentBanner() {
   }
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-background p-4 shadow-lg border-t">
+    <div className="fixed bottom-0 left-0 right-0 bg-background p-4 shadow-lg border-t z-50">
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div>

@@ -5,7 +5,6 @@ import { notFound } from 'next/navigation';
 import { Locale, hasLocale } from 'next-intl';
 import { getMessages, getTimeZone, setRequestLocale } from 'next-intl/server';
 
-import { ModeToggle } from '@kit/ui/mode-toggle';
 import { Toaster } from '@kit/ui/sonner';
 
 import Navigation from '~/[locale]/(marketing)/_components/navigation';

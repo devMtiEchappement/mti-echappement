@@ -7,14 +7,14 @@ import { Heading } from '@kit/ui/heading';
 
 
 export const generateMetadata = async () => {
-  const title = 'common:notFound';
+  const title = 'Page en construction';
 
   return {
     title,
   };
 };
 
-const NotFoundPage = async () => {
+const InConstructionPage = async () => {
 
   return (
     <div className={'flex h-screen flex-1 flex-col'}>
@@ -26,7 +26,7 @@ const NotFoundPage = async () => {
         <div className={'flex flex-col items-center space-y-12'}>
           <div>
             <h1 className={'font-heading text-8xl font-extrabold xl:text-9xl'}>
-              {`404`}
+              {`...`}
             </h1>
           </div>
 
@@ -34,12 +34,12 @@ const NotFoundPage = async () => {
             <div className={'flex flex-col items-center space-y-2.5'}>
               <div>
                 <Heading level={1}>
-                  {`Désolé, cette page n'existe pas.`}
+                  {`Cette page est en cours de construction.`}
                 </Heading>
               </div>
 
               <p className={'text-muted-foreground'}>
-                {`Nous nous excusons, la page que vous recherchiez n'a pas été trouvée`}
+                {`Nous nous excusons, nous travaillons toujours au contenu de cette page.`}
               </p>
             </div>
 
@@ -56,4 +56,4 @@ const NotFoundPage = async () => {
   );
 };
 
-export default NotFoundPage;
+export default InConstructionPage;

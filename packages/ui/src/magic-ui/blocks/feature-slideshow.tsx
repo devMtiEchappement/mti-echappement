@@ -13,66 +13,70 @@ import { motion, useInView } from "motion/react";
 import { cn } from "~/utils";
 
 type AccordionItemProps = {
-    children: React.ReactNode;
-    className?: string;
+  children: React.ReactNode;
+  className?: string;
 } & Accordion.AccordionItemProps;
 
 const AccordionItem = forwardRef<HTMLDivElement, AccordionItemProps>(
-    ({ children, className, ...props }, forwardedRef) => (
-        <Accordion.Item
-            className={cn(
-                "mt-px overflow-hidden focus-within:relative focus-within:z-10",
-                className,
-            )}
-            {...props}
-            ref={forwardedRef}
-        >
-            {children}
-        </Accordion.Item>
-    ),
+  ({ children, className, ...props }, forwardedRef) => (
+    <Accordion.Item
+      className={cn(
+        "mt-px overflow-hidden focus-within:relative focus-within:z-10",
+        className,
+      )}
+      {...props}
+      ref={forwardedRef}
+    >
+      {children}
+    </Accordion.Item>
+  ),
 );
+AccordionItem.displayName = "AccordionItem";
 
 type AccordionTriggerProps = {
-    children: React.ReactNode;
-    className?: string;
+  children: React.ReactNode;
+  className?: string;
 };
 
 const AccordionTrigger = forwardRef<HTMLButtonElement, AccordionTriggerProps>(
-    ({ children, className, ...props }, forwardedRef) => (
-        <Accordion.Header className="flex">
-            <Accordion.Trigger
-                className={cn(
-                    "group flex h-[45px] flex-1 cursor-pointer items-center justify-between px-5 text-[15px] leading-none outline-none",
-                    className,
-                )}
-                {...props}
-                ref={forwardedRef}
-            >
-                {children}
-            </Accordion.Trigger>
-        </Accordion.Header>
-    ),
+  ({ children, className, ...props }, forwardedRef) => (
+    <Accordion.Header className="flex">
+      <Accordion.Trigger
+        className={cn(
+          "group flex h-[45px] flex-1 cursor-pointer items-center justify-between px-5 text-[15px] leading-none outline-none",
+          className,
+        )}
+        {...props}
+        ref={forwardedRef}
+      >
+        {children}
+      </Accordion.Trigger>
+    </Accordion.Header>
+  ),
 );
+AccordionTrigger.displayName = "AccordionTrigger";
 
 type AccordionContentProps = {
-    children: ReactNode;
-    className?: string;
+  children: ReactNode;
+  className?: string;
 } & Accordion.AccordionContentProps;
 
 const AccordionContent = forwardRef<HTMLDivElement, AccordionContentProps>(
-    ({ children, className, ...props }, forwardedRef) => (
-        <Accordion.Content
-            className={cn(
-                "overflow-hidden text-[15px] font-medium data-[state=closed]:animate-slide-up data-[state=open]:animate-slide-down",
-                className,
-            )}
-            {...props}
-            ref={forwardedRef}
-        >
-            <div className="px-5 py-2">{children}</div>
-        </Accordion.Content>
-    ),
+  ({ children, className, ...props }, forwardedRef) => (
+    <Accordion.Content
+      className={cn(
+        "overflow-hidden text-[15px] font-medium data-[state=closed]:animate-slide-up data-[state=open]:animate-slide-down",
+        className,
+      )}
+      {...props}
+      ref={forwardedRef}
+    >
+      <div className="px-5 py-2">{children}</div>
+    </Accordion.Content>
+  ),
 );
+AccordionContent.displayName = "AccordionContent";
+
 
 type CardDataProps = {
     id: number;
@@ -123,7 +127,7 @@ type FeatureProps = {
     linePosition?: "left" | "right";
 };
 
-const Feature = ({
+export const Feature = ({
                      collapseDelay = 5000,
                      ltr = false,
                      linePosition = "left",
@@ -168,30 +172,31 @@ const Feature = ({
         }
     };
 
-    // interval for changing images
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setCurrentIndex((prevIndex) =>
-                prevIndex !== undefined ? (prevIndex + 1) % cardData.length : 0,
-            );
-        }, collapseDelay);
+  // interval for changing images
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex !== undefined ? (prevIndex + 1) % cardData.length : 0,
+      );
+    }, collapseDelay);
 
-        return () => clearInterval(timer);
-    }, [currentIndex]);
+    return () => clearInterval(timer);
+  }, [currentIndex, collapseDelay]);
 
-    useEffect(() => {
-        const handleAutoScroll = () => {
-            const nextIndex =
-                (currentIndex !== undefined ? currentIndex + 1 : 0) % cardData.length;
-            scrollToIndex(nextIndex);
-        };
+  useEffect(() => {
+    const handleAutoScroll = () => {
+      const nextIndex =
+        (currentIndex !== undefined ? currentIndex + 1 : 0) % cardData.length;
+      scrollToIndex(nextIndex);
+    };
 
-        const autoScrollTimer = setInterval(handleAutoScroll, collapseDelay);
+    const autoScrollTimer = setInterval(handleAutoScroll, collapseDelay);
 
-        return () => clearInterval(autoScrollTimer);
-    }, [currentIndex]);
+    return () => clearInterval(autoScrollTimer);
+  }, [currentIndex, collapseDelay]);
 
-    useEffect(() => {
+
+  useEffect(() => {
         const carousel = carouselRef.current;
         if (carousel) {
             const handleScroll = () => {
@@ -339,6 +344,8 @@ const Feature = ({
         </section>
     );
 };
+
+
 
 export function FeatureSection() {
     return <Feature collapseDelay={5000} linePosition="left" />;

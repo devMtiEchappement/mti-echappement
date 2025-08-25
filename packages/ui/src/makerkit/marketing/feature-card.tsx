@@ -17,7 +17,7 @@ export const FeatureCard: React.FC<FeatureCardProps> = ({
   ...props
 }) => {
   return (
-    <div className={cn('rounded-xl border p-4', className)} {...props}>
+    <div className={cn('p-4', className)} {...props}>
       <CardHeader>
         {icon && (
           <div className="bg-mti-foreground mb-4 flex h-24 w-24 items-center justify-center rounded-full">

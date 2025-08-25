@@ -1,5 +1,6 @@
 "use client";
 
+import Image from 'next/image';
 import React from "react";
 
 // Type pour définir une feature avec des nœuds React
@@ -20,17 +21,17 @@ interface FeatureScrollProps {
 
 const DefaultFeature = () => (
     <div className="flex flex-col gap-4 max-w-sm mx-auto lg:mx-0 items-center justify-center lg:items-start lg:justify-start text-center lg:text-left">
-        <h1 className="text-4xl font-bold">Scroll Feature</h1>
+        <h1 className="text-4xl font-bold">{`Scroll Feature`}</h1>
         <p className="text-lg">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Voluptates, quibusdam.
+          {`Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Voluptates, quibusdam.`}
         </p>
         <div className="flex gap-4">
             <button className="bg-neutral-100 text-black px-4 py-2 rounded-md">
-                Learn More
+              {`Learn More`}
             </button>
             <button className="bg-neutral-800 text-white px-4 py-2 rounded-md">
-                Learn More
+              {`Learn More`}
             </button>
         </div>
     </div>
@@ -49,7 +50,7 @@ const FeatureScrollContainer: React.FC<FeatureScrollProps> = ({
     return (
         <div className="w-full">
             <div className="lg:hidden flex flex-col gap-y-10">
-                <img
+                <Image
                     src={imageSrc}
                     alt="Scrolling"
                     className={`w-full max-w-[300px] mx-auto mb-4 ${isLTR ? "order-1" : "order-2"}`}
@@ -66,7 +67,7 @@ const FeatureScrollContainer: React.FC<FeatureScrollProps> = ({
                 <div
                     className={`flex items-center justify-center h-fit ${isLTR ? "" : "row-start-1"}`}
                 >
-                    <img
+                    <Image
                         src={imageSrc}
                         alt="Scrolling"
                         className="w-full max-w-[300px]"
@@ -101,7 +102,7 @@ export function FeatureScrollDemo({ features = demoData }: { features?: FeatureI
     return (
         <section>
             <div className="h-[50vh] bg-neutral-100 dark:bg-neutral-900 flex items-center justify-center">
-                <h3 className="text-4xl font-bold">Hero Section</h3>
+                <h3 className="text-4xl font-bold">{`Header Section`}</h3>
             </div>
             <div className="flex flex-col gap-20 container p-10">
                 {features.map((feature) => (
@@ -116,7 +117,7 @@ export function FeatureScrollDemo({ features = demoData }: { features?: FeatureI
                 ))}
             </div>
             <div className="h-[50vh] bg-neutral-100 dark:bg-neutral-900 flex items-center justify-center">
-                <h3 className="text-4xl font-bold">Footer Section</h3>
+                <h3 className="text-4xl font-bold">{`Footer Section`}</h3>
             </div>
         </section>
     );

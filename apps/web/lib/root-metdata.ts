@@ -13,7 +13,11 @@ export const generateRootMetadata = async (): Promise<Metadata> => {
   //const csrfToken = headersStore.get('x-csrf-token') ?? '';
 
   return {
-    title: appConfig.title,
+
+    title: {
+      template: `%s | ${appConfig.title}`,
+      default: appConfig.title,
+    },
     description: appConfig.description,
     metadataBase: new URL(appConfig.url),
     applicationName: appConfig.name,

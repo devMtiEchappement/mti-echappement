@@ -34,7 +34,7 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
     // Classes pour le lien actif quand variant est "link"
     const activeLinkClasses =
       variant === 'link' && isActive
-        ? 'underline underline-offset-4 decoration-2 decoration-primary'
+        ? 'underline underline-offset-4 decoration-2 decoration-mti-orange'
         : '';
 
     // Si c'est un lien externe, utiliser un élément <a> normal

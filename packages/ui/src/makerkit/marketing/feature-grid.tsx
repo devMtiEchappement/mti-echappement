@@ -7,7 +7,7 @@ export const FeatureGrid: React.FC<React.HTMLAttributes<HTMLDivElement>> =
     return (
       <div
         className={cn(
-          'grid w-full grid-cols-1 gap-4 space-y-0 lg:grid-cols-4',
+          'grid w-full  gap-4 space-y-0 grid-cols-2 xl:grid-cols-4',
           className,
         )}
         {...props}

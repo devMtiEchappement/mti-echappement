@@ -2,9 +2,10 @@ import { use } from 'react';
 
 import Link from 'next/link';
 
-import { ArrowRightIcon, Settings, Trophy, Wrench, Zap } from 'lucide-react';
-import { Locale, useTranslations } from 'next-intl';
+import { Settings, Trophy, Wrench, Zap } from 'lucide-react';
+import { Locale } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
+import type { HeroImage } from '~/[locale]/(marketing)/_components/hero';
 
 import { ConsentBanner } from '@kit/consent';
 import {
@@ -27,24 +28,24 @@ function Home({ params }: Props) {
   // Enable static rendering
   setRequestLocale(locale);
 
-  const heroImages = [
+  const heroImages: HeroImage[] = [
     {
       src: '/images/hero-1.jpg',
       alt: 'Image de présentation 1',
       title: 'Innovation technologique',
-      theme: 'dark' as const,
+      theme: 'dark',
     },
     {
       src: '/images/hero-2.jpg',
       alt: 'Image de présentation 2',
       title: '7000 références en échappements serie',
-      theme: 'light' as const,
+      theme: 'light',
     },
     {
       src: '/images/hero-3.jpg',
       alt: 'Image de présentation 3',
       title: 'Du stock dans la gamme serie',
-      theme: 'dark' as const,
+      theme: 'dark',
     },
   ];
 
@@ -133,21 +134,13 @@ function Home({ params }: Props) {
 export default Home;
 
 function MainCallToActionButton() {
-  const t_common = useTranslations('common');
 
   return (
     <div className={'flex space-x-4'}>
       <CtaButton variant={'mti-orange'}>
         <Link href={'/auth/sign-up'}>
           <span className={'flex items-center space-x-0.5'}>
-            <span>Échappement "serie"</span>
-
-            <ArrowRightIcon
-              className={
-                'animate-in fade-in slide-in-from-left-8 h-4' +
-                ' zoom-in fill-mode-both delay-1000 duration-1000'
-              }
-            />
+            <span>{`Échappements serie`}</span>
           </span>
         </Link>
       </CtaButton>

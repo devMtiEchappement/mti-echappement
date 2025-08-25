@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Mail, MapPin, Phone } from 'lucide-react';
+import { Mail, MapPin } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
@@ -9,6 +9,7 @@ export const Footer: React.FC = () => {
         {/* Titre principal */}
         <div className="mb-12 text-center">
           <h2 className="mb-6 text-3xl font-bold md:text-4xl">
+            {``}
             Pour nous <span className="text-mti-orange">contacter</span> ou
             venir nous voir.
           </h2>
